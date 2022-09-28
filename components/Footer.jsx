@@ -4,6 +4,15 @@ import { useTheme } from 'next-themes';
 import images from '../assets';
 import { Button } from '.';
 
+const FooterLinks = ({ heading, items }) => (
+  <div className="flex-1 justify-stat items-start">
+    <h3 className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl md-10">{heading}</h3>
+    {items.map((item, index) => (
+      <p key={index} className="font-poppins dark:text-white text-nft-black-1 font-normal text-base cursor-pointer dark:hover:text-nft-gray-1 hover:text-nft-black-1 my-3">{item}</p>
+    ))}
+  </div>
+);
+
 const Footer = () => {
   const { theme } = useTheme();
 
@@ -29,6 +38,11 @@ const Footer = () => {
               />
             </div>
           </div>
+        </div>
+
+        <div className="flex-1 flexBetweenStart flex-wrap ml-10 md:ml-0 md:mt-8">
+          <FooterLinks heading="NFT Marketplace" items={['Explore', 'How it works', 'Contact Us']} />
+          <FooterLinks heading="Support" items={['Help Center', 'Terms of Service', 'Legal', 'Privacy Policy']} />
         </div>
       </div>
 
