@@ -1,4 +1,4 @@
-import { arrayify } from "ethers/lib/utils";
+import { arrayify } from 'ethers/lib/utils';
 
 export const makeId = (length) => {
   let result = '';
@@ -8,7 +8,6 @@ export const makeId = (length) => {
 
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-
   }
 
   return result;
