@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-import { Banner, CreatorCard } from '../components';
+import { Banner, CreatorCard } from '../components/Index';
 import images from '../assets';
 import { makeId } from '../utils/makeId';
 
