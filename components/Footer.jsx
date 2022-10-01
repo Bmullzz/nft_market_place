@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 import images from '../assets';
-// eslint-disable-next-line import/no-cycle
-import { Button } from './Index';
+import Button from './Button';
+// import { Button } from './Index';
 
 const FooterLinks = ({ heading, items }) => (
   <div className="flex-1 justify-stat items-start">

@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { useState, useEffect, useContext } from 'react';
+import { useState } from 'react'; //  useEffect, useContext
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import images from '../assets';
-// eslint-disable-next-line import/no-cycle
-import { Button } from './Index';
+import Button from './Button';
+// import { Button } from './Index';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const generateLink = (i) => {
