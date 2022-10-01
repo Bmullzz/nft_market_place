@@ -12,7 +12,13 @@ const NFTCard = ({ nft }) => (
       <div className="relative w-full h-52 sm:h-36 xs:h-56 minmd:h-60 minlg:h-300 rounded-2xl overflow-hidden">
         <Image src={nft.image || images[`nft${nft.i}`]} layout="fill" objectFit="cover" alt={`nft${nft.i}`} />
       </div>
-      {nft.name}
+      <div className="mt-3 flex flex-col">
+        <p>{nft.name}</p>
+        <div>
+          <p>{nft.price} <span className="normal">ETH</span></p>
+          <p>{nft.seller}</p>
+        </div>
+      </div>
     </div>
   </Link>
 );
