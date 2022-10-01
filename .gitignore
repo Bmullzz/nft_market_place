@@ -31,3 +31,5 @@ artifacts
 
 # static folder for DigitalOcean App Platform
 _static
+
+.DS_Store
