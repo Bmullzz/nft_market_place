@@ -11,8 +11,18 @@ const CreateNft = () => {
   const [fileURL, setFileURL] = useState(null);
   const { theme } = useTheme();
 
+  const onDrop = useCallback(() => {
+    // upload image to the blockchain ipfs
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
+    onDrop,
+    accept: 'image/*',
+    maxSize: 5000000,
+  });
+
   const fileStyle = useMemo(() => (
-    ''
+    'dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5'
   ), []);
 
   return (
@@ -23,8 +33,8 @@ const CreateNft = () => {
         <div className="mt-16 ">
           <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">Upload File</p>
           <div className="mt-4">
-            <div className={fileStyle}>
-
+            <div {...getRootProps()} className={fileStyle}>
+              <input {...getInputProps()} />
             </div>
           </div>
         </div>
