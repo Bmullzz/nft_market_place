@@ -22,8 +22,11 @@ const CreateNft = () => {
   });
 
   const fileStyle = useMemo(() => (
-    'dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5'
-  ), []);
+    `dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed
+    ${isDragActive && ' border-file-active'}
+    ${isDragAccept && ' border-file-accept'}
+    ${isDragReject && ' border-file-reject'}`
+  ), [isDragActive, isDragAccept, isDragReject]);
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
@@ -35,6 +38,11 @@ const CreateNft = () => {
           <div className="mt-4">
             <div {...getRootProps()} className={fileStyle}>
               <input {...getInputProps()} />
+              <div className="flexCenter flex-col text-center">
+                <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
+                  JPG, PNG, GIF, SVG, WEBM, MP3, MP4. Max 100mb.
+                </p>
+              </div>
             </div>
           </div>
         </div>
