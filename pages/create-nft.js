@@ -9,7 +9,6 @@ import images from '../assets';
 
 const CreateNft = () => {
   const [fileURL, setFileURL] = useState(null);
-  useState
   const { theme } = useTheme();
   const [formInput, setFormInput] = useState({ price: '', name: '', description: '' })
   const onDrop = useCallback(() => {
