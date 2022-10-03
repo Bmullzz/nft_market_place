@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from 'react'; //  useEffect, useContext
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
