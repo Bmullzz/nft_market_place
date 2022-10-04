@@ -39,7 +39,7 @@ contract NFTMarketplace is ERC721URIStorage {
         bool sold   
     );
 
-    constructor() {
+    constructor() ERC721("Mullinverse Tokens", "MULL"){
         owner = payable(msg.sender);
     }
 
