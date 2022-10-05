@@ -39,7 +39,7 @@ const CreatorCard = ({ rank, creatorImage, creatorName, creatorEths }) => {
       </div>
 
     </div>
-  )
+  );
 };
 
 export default CreatorCard;
