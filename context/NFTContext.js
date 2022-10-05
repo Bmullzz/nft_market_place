@@ -7,6 +7,7 @@ import { create as ipfsHttpClient } from 'ipfs-http-client';
 import { MarketAddress, MarketAddressABI } from './constants';
 
 export const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
+
 export const NFTContext = React.createContext();
 
 export const NFTProvider = ({ children }) => {
@@ -39,7 +40,7 @@ export const NFTProvider = ({ children }) => {
     window.location.reload();
   };
 
-  const uploadToIPFS = async (file, setFileURL) => {
+  const uploadToIPFS = async (file) => {
     try {
       const added = await client.add({ content: file });
 
