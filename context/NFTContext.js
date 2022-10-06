@@ -20,6 +20,8 @@ const client = ipfsHttpClient({
   },
 });
 
+const fetchContract = (signerOrProvider) => new ethers.Contract(MarketAddress, MarketAddressABI, signerOrProvider);
+
 export const NFTContext = React.createContext();
 
 export const NFTProvider = ({ children }) => {
