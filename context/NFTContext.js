@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Web3Modal from 'web3modal';
-import { ether } from 'ethers';
+import { ethers } from 'ethers';
 import axios from 'axios';
 import { create as ipfsHttpClient } from 'ipfs-http-client';
 
@@ -82,6 +82,16 @@ export const NFTProvider = ({ children }) => {
     } catch (error) {
       console.log('Error uploading file to IPFS');
     }
+  };
+
+  const createSale = async (url, formInputPrice, isReselling, id) => {
+    const web3Modal = new Web3Modal();
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const signer = provider.getSigner();
+
+    const price = ethers.utils.parseUnits(formInputPrice, 'ether');
+    const contract = fetchContract(signer);
   };
 
   return (
