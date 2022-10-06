@@ -6,10 +6,10 @@ import { create as ipfsHttpClient } from 'ipfs-http-client';
 
 import { MarketAddress, MarketAddressABI } from './constants';
 
-// export const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 const projectId = process.env.NEXT_PUBLIC_IPFS_PROJECT_ID;
 const projectSecret = process.env.NEXT_PUBLIC_API_KEY_SECRET;
 const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString('base64')}`;
+const subdomain = 'https://bmullzz-nft-marketplace.infura-ipfs.io';
 
 const client = ipfsHttpClient({
   host: 'ipfs.infura.io',
@@ -53,8 +53,6 @@ export const NFTProvider = ({ children }) => {
   };
 
   const uploadToIPFS = async (file) => {
-    const subdomain = 'https://bmullzz-nft-marketplace.infura-ipfs.io';
-
     try {
       const added = await client.add({ content: file });
 
