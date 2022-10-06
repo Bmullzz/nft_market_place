@@ -64,6 +64,26 @@ export const NFTProvider = ({ children }) => {
     }
   };
 
+  const createNFT = async (formInput, fileUrl, router) => {
+    const { name, description, price } = formInput;
+
+    if (!name || !description || !price || !fileUrl) return;
+
+    const data = JSON.stringify({ name, description, image: fileUrl });
+
+    try {
+      const added = await client.add(data);
+
+      const url = `${subdomain}/ipfs/${added.path}`;
+
+      await createSale(url, price);
+
+      router.push('/');
+    } catch (error) {
+      console.log('Error uploading file to IPFS');
+    }
+  };
+
   return (
     <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS }}>
       {children}
