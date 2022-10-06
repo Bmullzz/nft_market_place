@@ -66,7 +66,7 @@ export const NFTProvider = ({ children }) => {
     }
   };
 
-  const createNFT = async (formInput, fileURL, router) => {
+  const createNft = async (formInput, fileURL, router) => {
     const { name, description, price } = formInput;
 
     if (!name || !description || !price || !fileURL) return;
@@ -102,7 +102,7 @@ export const NFTProvider = ({ children }) => {
   };
 
   return (
-    <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT }}>
+    <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNft }}>
       {children}
     </NFTContext.Provider>
   );
