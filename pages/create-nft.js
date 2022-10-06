@@ -14,7 +14,8 @@ const CreateNft = () => {
   const [fileURL, setFileURL] = useState(null);
   const [formInput, setFormInput] = useState({ price: '', name: '', description: '' });
   const { theme } = useTheme();
-  const { uploadToIPFS } = useContext(NFTContext);
+  const { uploadToIPFS, createNft } = useContext(NFTContext);
+  const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
     const url = await uploadToIPFS(acceptedFile[0]);
@@ -106,7 +107,7 @@ const CreateNft = () => {
           <Button
             btnName="Create NFT"
             className="rounded-xl"
-            handleClick={() => {}}
+            handleClick={() => createNft(formInput, fileURL, router)}
           />
         </div>
       </div>

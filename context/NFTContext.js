@@ -66,12 +66,12 @@ export const NFTProvider = ({ children }) => {
     }
   };
 
-  const createNFT = async (formInput, fileUrl, router) => {
+  const createNFT = async (formInput, fileURL, router) => {
     const { name, description, price } = formInput;
 
-    if (!name || !description || !price || !fileUrl) return;
+    if (!name || !description || !price || !fileURL) return;
 
-    const data = JSON.stringify({ name, description, image: fileUrl });
+    const data = JSON.stringify({ name, description, image: fileURL });
 
     try {
       const added = await client.add(data);
@@ -94,10 +94,15 @@ export const NFTProvider = ({ children }) => {
 
     const price = ethers.utils.parseUnits(formInputPrice, 'ether');
     const contract = fetchContract(signer);
+    const listingPrice = await contract.getListingPrice();
+
+    const transaction = await contract.createToken(url, price, { value: listingPrice.toString() });
+
+    await transaction.wait();
   };
 
   return (
-    <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS }}>
+    <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT }}>
       {children}
     </NFTContext.Provider>
   );
