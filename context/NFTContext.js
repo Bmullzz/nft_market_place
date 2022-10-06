@@ -6,7 +6,19 @@ import { create as ipfsHttpClient } from 'ipfs-http-client';
 
 import { MarketAddress, MarketAddressABI } from './constants';
 
-export const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
+// export const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
+const projectId = process.env.NEXT_PUBLIC_IPFS_PROJECT_ID;
+const projectSecret = process.env.NEXT_PUBLIC_API_KEY_SECRET;
+const auth = `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString('base64')}`;
+
+const client = ipfsHttpClient({
+  host: 'ipfs.infura.io',
+  port: 5001,
+  protocol: 'https',
+  headers: {
+    authorization: auth,
+  },
+});
 
 export const NFTContext = React.createContext();
 
@@ -41,10 +53,12 @@ export const NFTProvider = ({ children }) => {
   };
 
   const uploadToIPFS = async (file) => {
+    const subdomain = 'https://bmullzz-nft-marketplace.infura-ipfs.io';
+
     try {
       const added = await client.add({ content: file });
 
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+      const url = `${subdomain}/ipfs/${added.path}`;
 
       return url;
     } catch (error) {
