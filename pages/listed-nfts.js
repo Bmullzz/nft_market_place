@@ -16,7 +16,7 @@ const ListedNFTs = () => {
   }
   
   return (
-
+    
   );
 };
 
