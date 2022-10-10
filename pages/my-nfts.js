@@ -40,7 +40,14 @@ const MyNFTs = () => {
           <h1 className="font-poppins dark:text-white text-nft-black-1 font-extrabold text-3xl">No NFTs Owned</h1>
         </div>
       ) : (
-        <div />
+        <div className="sm:px-4 p-12 w-full minmd:w-4/5 flexCenter flex-col">
+          <div className="flex-1 w-full flex flex-row sm:flex-col px-4 xspx-0 minlg:px-8">
+            SearchBar
+          </div>
+          <div className="mt-3 w-full flex flex-wrap">
+            ${nfts.map((nft) => <NFTCard key={nft.token} nft={nft} />)}
+          </div>
+        </div>
       )}
 
     </div>
