@@ -8,7 +8,7 @@ import { shortenAddress } from '../utils/shortenAddress';
 import images from '../assets';
 
 const NFTDetails = () => {
-  const { currentAccount } = useContext(NFTContext);
+  const { currentAccount, nftCurrency } = useContext(NFTContext);
   const [isLoading, setIsLoading] = useState(true);
   const [nft, setNft] = useState({ image: '', tokenId: '', name: '', owner: '', price: '', seller: '' });
   const router = useRouter();
@@ -53,6 +53,19 @@ const NFTDetails = () => {
           <div className="mt-3">
             <p className="font-poppins dark:text-white text-nft-black-1 text-base font-normal">{nft.description}</p>
           </div>
+        </div>
+        <div className="flex flex-row sm:flex-col mt-10">
+          {currentAccount === nft.seller.toLowerCase()
+            ? (
+              <p className="font-poppins dark:text-white text-nft-black-1 text-base font-normal border border-gray p-2">
+                You cannot buy your own NFT
+              </p>
+            ) : (
+              <Button 
+                btnName={`Buy for ${nft.price} ${nftCurrency}`}
+                classStyles="mr-5 sm:mr-0 rounded-xl"
+              />
+            )}
         </div>
       </div>
     </div>
