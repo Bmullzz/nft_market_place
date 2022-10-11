@@ -113,8 +113,17 @@ const NFTDetails = () => {
         header="Check Out"
         body={<PaymentBodyCmp nft={nft} nftCurrency={nftCurrency} />}
         footer={(
-          <div>
-            Custom Footer
+          <div className="flex flex-row sm:flex-col">
+            <Button
+              btnName="Checkout"
+              classStyles="mr-5 sm:mr-0 rounded-xl"
+              handleClick={() => {}}
+            />
+            <Button
+              btnName="Cancel"
+              classStyles="rounded-xl"
+              handleClick={() => {}}
+            />
           </div>
         )}
         handleClick={() => {}}
