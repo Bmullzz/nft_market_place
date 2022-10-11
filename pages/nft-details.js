@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { NFTContext } from '../context/NFTContext';
-import { Loader, NFTCard, Button } from '../components';
+import { Loader, NFTCard, Button, Modal } from '../components';
 import { shortenAddress } from '../utils/shortenAddress';
 import images from '../assets';
 
@@ -61,13 +61,15 @@ const NFTDetails = () => {
                 You cannot buy your own NFT
               </p>
             ) : (
-              <Button 
+              <Button
                 btnName={`Buy for ${nft.price} ${nftCurrency}`}
                 classStyles="mr-5 sm:mr-0 rounded-xl"
               />
             )}
         </div>
       </div>
+
+      <Modal />
     </div>
   );
 };
