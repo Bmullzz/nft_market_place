@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import Image from 'next/Image';
+import Image from 'next/image';
 
 import { NFTContext } from '../context/NFTContext';
 import { Loader, NFTCard, Banner } from '../components';
