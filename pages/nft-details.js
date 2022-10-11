@@ -31,18 +31,18 @@ const NFTDetails = () => {
         </div>
       </div>
 
-      <div>
-        <div>
-          <h2>{nft.name}</h2>
+      <div className="flex-1 justify-start sm:px-4 p-12 sm:pb-4">
+        <div className="flex flex-row sm:flex-col">
+          <h2 className="font-poppins dark:text-white text-nft-black-1 font-semibold text-2xl minlg:text-3xl">{nft.name}</h2>
         </div>
 
-        <div>
-          <p>Creator</p>
-          <div>
-            <div>
+        <div className="mt-10">
+          <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-normal">Creator</p>
+          <div className="flex flex-row items-center mt-3">
+            <div className="relative w-12 h-12 minlg:w-20 minlg:h-20 mr-2">
               <Image src={images.creator1} objectFit="cover" className="rounded-full" />
             </div>
-            <p>{shortenAddress(nft.seller)}</p>
+            <p className="font-poppins dark:text-white text-nft-black-1 text-xs minlg:text-base font-semibold">{shortenAddress(nft.seller)}</p>
           </div>
         </div>
       </div>
