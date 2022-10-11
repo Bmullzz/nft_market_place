@@ -50,6 +50,9 @@ const NFTDetails = () => {
           <div className="w-full border-b dark:border-nft-black-1 border-nft-gray-1 flex flex-row">
             <p className="font-poppins dark:text-white text-nft-black-1 text-base minlg:text-base font-medium mb-2">Details</p>
           </div>
+          <div className="mt-3">
+            <p className="font-poppins dark:text-white text-nft-black-1 text-base font-normal">{nft.description}</p>
+          </div>
         </div>
       </div>
     </div>
