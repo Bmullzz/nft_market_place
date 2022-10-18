@@ -6,6 +6,7 @@ import { NFTContext } from '../context/NFTContext';
 import { Banner, CreatorCard, NFTCard } from '../components/Index';
 import images from '../assets';
 import { makeId } from '../utils/makeId';
+import { getCreators } from '../utils/getTopCreators';
 
 const Home = () => {
   const { fetchNFTs } = useContext(NFTContext);
@@ -55,6 +56,8 @@ const Home = () => {
       window.removeEventListener('resize', isScrollable);
     };
   });
+
+  const topCreators = getCreators(nfts);
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
