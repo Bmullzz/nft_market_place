@@ -35,8 +35,10 @@ const ResellNFT = () => {
   }
 
   return (
-    <div>
-
+    <div className="flex justify-center sm:px-4 p-12">
+      <div className="w-3/5 md:w-full">
+        <h1>Resell NFT</h1>
+      </div>
     </div>
   );
 };
