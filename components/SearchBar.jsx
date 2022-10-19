@@ -4,10 +4,27 @@ import { useTheme } from 'next-themes';
 
 import images from '../assets';
 
-const SearchBar = () => {
+const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch }) => {
   const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [toggle, setToggle] = useState(false);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearch(debouncedSearch);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [debouncedSearch]);
+
+  useEffect(() => {
+    if (search) {
+      handleSearch(search);
+    } else {
+      clearSearch();
+    }
+  }, [search]);
 
   return (
     <>
@@ -17,8 +34,8 @@ const SearchBar = () => {
           type="text"
           placeholder="Search NFT here..."
           className="dark:bg-nft-black-2 bg-white mx-4 w-full dark:text-white text-nft-black-1 font-normal text-xs outline-none"
-          onChange={() => {}}
-          value=""
+          onChange={(e) => setDebouncedSearch(e.target.value)}
+          value={debouncedSearch}
         />
       </div>
 
