@@ -9,12 +9,13 @@ import { NFTContext } from '../context/NFTContext';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import images from '../assets';
+import { Loader } from '../components';
 
 const CreateNft = () => {
   const [fileURL, setFileURL] = useState(null);
   const [formInput, setFormInput] = useState({ price: '', name: '', description: '' });
   const { theme } = useTheme();
-  const { uploadToIPFS, createNft } = useContext(NFTContext);
+  const { isLoadingNFT, uploadToIPFS, createNft } = useContext(NFTContext);
   const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
@@ -38,7 +39,13 @@ const CreateNft = () => {
     ${isDragReject && ' border-file-reject'}`
   ), [isDragActive, isDragAccept, isDragReject]);
 
-  console.log(formInput);
+  if (isLoadingNFT) {
+    return (
+      <div className="flexStart min-h-screen">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
