@@ -29,7 +29,7 @@ const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch })
   return (
     <>
       <div className="flex-1 flexCenter dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-nft-gray-2 py-3 px-4 rounded-md">
-        <Image src={images.search} objectFit="contain" width={20} height={20} alt="search" className={theme === 'light' && 'filter invert'} />
+        <Image src={images.search} objectFit="contain" width={20} height={20} alt="search" className={theme === 'light' ? 'filter invert' : ''} />
         <input
           type="text"
           placeholder="Search NFT here..."
@@ -47,7 +47,7 @@ const SearchBar = ({ activeSelect, setActiveSelect, handleSearch, clearSearch })
           width={15}
           height={10}
           alt="arrow"
-          className={theme === 'light' && 'filter invert'}
+          className={theme === 'light' ? 'filter invert' : ''}
         />
         {toggle && (
         <div className="absolute top-full left-0 right-0 w-full mt-3 z-10 dark:bg-nft-black-2 bg-white border dark:border-nft-black-2 border-nft-gray-2 py-3 px-4 rounded-md">
