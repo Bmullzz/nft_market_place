@@ -36,6 +36,7 @@ _static
 
 node_modules
 .env
+.env.goerli
 coverage
 coverage.json
 typechain
