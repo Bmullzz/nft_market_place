@@ -2,7 +2,11 @@ import { useState, useEffect, useContext } from 'react';
 import Image from 'next/image';
 
 import { NFTContext } from '../context/NFTContext';
-import { Loader, NFTCard, Banner, SearchBar } from '../components';
+// import { Loader, NFTCard, Banner, SearchBar } from '../components';
+import Loader from '../components/Loader';
+import NFTCard from '../components/NFTCard';
+import Banner from '../components/Banner';
+import SearchBar from '../components/SearchBar';
 import images from '../assets';
 import { shortenAddress } from '../utils/shortenAddress';
 
