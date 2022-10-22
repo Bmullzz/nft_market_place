@@ -3,7 +3,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { NFTContext } from '../context/NFTContext';
-import { Loader, NFTCard, Button, Modal } from '../components';
+// import { Loader, NFTCard, Button, Modal } from '../components';
+import Loader from '../components/Loader';
+import Button from '../components/Button';
+import Modal from '../components/Modal';
+
 import { shortenAddress } from '../utils/shortenAddress';
 import images from '../assets';
 

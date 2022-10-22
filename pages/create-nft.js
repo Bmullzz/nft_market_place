@@ -9,7 +9,7 @@ import { NFTContext } from '../context/NFTContext';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import images from '../assets';
-import { Loader } from '../components';
+import Loader from '../components/Loader';
 
 const CreateNft = () => {
   const [fileURL, setFileURL] = useState(null);
