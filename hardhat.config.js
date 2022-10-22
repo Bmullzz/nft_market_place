@@ -1,7 +1,8 @@
 const fs = require('fs');
-require("@nomiclabs/hardhat-waffle");
+require('@nomiclabs/hardhat-waffle');
 
-const privateKey = fs.readFileSync('.secret').toString().trim();
+const ALCHEMY_API_KEY = fs.readFileSync('.env.goerli').toString().trim();
+const GOERLI_PRIVATE_KEY = fs.readFileSync('.secret.goerli').toString().trim();
 
 module.exports = {
   networks: {
@@ -9,8 +10,8 @@ module.exports = {
       chainId: 1337,
     },
     goerli: {
-      url: `dfdf`,
-      accounts: [],
+      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      accounts: [GOERLI_PRIVATE_KEY],
     },
   },
   solidity: '0.8.4',
