@@ -108,7 +108,7 @@ export const NFTProvider = ({ children }) => {
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
 
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider('sepolia/https://nft-market-place-zeta.vercel.app/');
     const contract = fetchContract(provider);
 
     const data = await contract.fetchMarketItems();
